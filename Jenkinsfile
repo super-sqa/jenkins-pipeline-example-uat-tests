@@ -10,13 +10,11 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing in Chrome..'
-            }
-        }
-        stage('Test') {
-            steps {
                 echo 'Testing in Firefox..'
+
             }
         }
+
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
