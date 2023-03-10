@@ -7,23 +7,19 @@ pipeline {
                 echo 'Building..'
             }
         }
-        stage('Test') {
-            steps {
-
-                parallel(
-                    a: {
+        parallel {
+            stage('Testing in Chrome....') {
                         echo 'Testing in Chrome..'
+            }
 
-                    }
-                    b: {
-
-                    }
-
-                )
+            stage('Testing in Firefox....') {
+                        echo 'Testing in Firefox..'
+            }
+                
 
             }
+            
         }
-
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
