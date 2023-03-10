@@ -9,8 +9,17 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing in Chrome..'
-                echo 'Testing in Firefox..'
+
+                parallel(
+                    a: {
+                        echo 'Testing in Chrome..'
+
+                    }
+                    b: {
+
+                    }
+
+                )
 
             }
         }
