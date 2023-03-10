@@ -1,30 +1,30 @@
 pipeline {
-    agent any
-
+    agent none
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
+        stage('Run Tests') {
+            parallel {
+                stage('Test On Windows') {
 
-        stage ('UAT Test......') {
-        parallel {
-            stage('Testing in Chrome....') {
-                        echo 'Testing in Chrome..'
-            }
+                    steps {
+                        echo "run-tests.bat"
+                    }
+                    post {
+                        always {
+                            echo "**/TEST-*.xml"
+                        }
+                    }
+                }
+                stage('Test On Linux') {
 
-            stage('Testing in Firefox....') {
-                        echo 'Testing in Firefox..'
-            }
-                
-
-            }
-            
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                    steps {
+                        echo "run-tests.sh"
+                    }
+                    post {
+                        always {
+                            echo "**/TEST-*.xml"
+                        }
+                    }
+                }
             }
         }
     }
