@@ -7,6 +7,8 @@ pipeline {
                 echo 'Building..'
             }
         }
+
+        stage ('UAT Test......') {
         parallel {
             stage('Testing in Chrome....') {
                         echo 'Testing in Chrome..'
@@ -19,7 +21,7 @@ pipeline {
 
             }
             
-        
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
