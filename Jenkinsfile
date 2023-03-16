@@ -26,16 +26,35 @@ pipeline {
 
         stage('Integration Tests') {
             parallel {
-                stage('Test Chrome') {
+                stage('Test Chrome - Windows 11') {
                     steps {
-                        echo 'npm run test:integration:chrome'
+                        echo 'npm run test: Windows - integration:chrome'
                     }
                 }
-                stage('Test Firefox') {
+                stage('Test Chrome - Mac 11') {
+                    steps {
+                        echo 'npm run test: Mac - integration:chrome'
+                    }
+                }
+                stage('Test Firefox - Windows 11') {
                     steps {
                         echo 'npm run test:integration:firefox'
-                        echo 'npm run test:integration:firefox-1.2'
-                        echo 'npm run test:integration:firefox-1.2'
+
+                    }
+                }
+                stage('Test Firefox - Windows 10') {
+                    steps {
+                        echo 'npm run test:integration:firefox'
+                    }
+                }
+                stage('Test Firefox - Mac') {
+                    steps {
+                        echo 'npm run test:integration:firefox'
+                    }
+                }
+                stage('Test Safari') {
+                    steps {
+                        echo 'npm run test:integration:safari'
                     }
                 }
             }
