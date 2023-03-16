@@ -41,7 +41,7 @@ pipeline {
 
         stage('Deploy to QA') {
             when {
-                always()
+                branch 'main'
             }
             steps {
                 sh 'npm run deploy:qa'
@@ -50,7 +50,7 @@ pipeline {
 
         stage('Deploy to Production') {
             when {
-                always()
+                branch 'main'
             }
             steps {
                 sh 'npm run deploy:prod'
