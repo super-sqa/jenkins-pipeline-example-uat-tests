@@ -34,6 +34,8 @@ pipeline {
                 stage('Test Firefox') {
                     steps {
                         echo 'npm run test:integration:firefox'
+                        echo 'npm run test:integration:firefox-1.2'
+                        echo 'npm run test:integration:firefox-1.2'
                     }
                 }
             }
