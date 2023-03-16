@@ -40,20 +40,20 @@ pipeline {
         }
 
         stage('Deploy to QA') {
-            when {
-                branch 'main'
-            }
+            // when {
+            //     branch 'main'
+            // }
             steps {
-                sh 'npm run deploy:qa'
+                echo 'npm run deploy:qa'
             }
         }
 
         stage('Deploy to Production') {
-            when {
-                branch 'main'
-            }
+            // when {
+            //     branch 'main'
+            // }
             steps {
-                sh 'npm run deploy:prod'
+                echo 'npm run deploy:prod'
             }
         }
     }
