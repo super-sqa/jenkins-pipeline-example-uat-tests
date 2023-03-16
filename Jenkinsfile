@@ -36,6 +36,27 @@ pipeline {
                         echo 'npm run test: Mac - integration:chrome'
                     }
                 }
+            }
+        }
+
+        stage('Deploy to QA') {
+
+            steps {
+                echo 'npm run deploy:qa'
+            }
+        }
+        stage('User Acceptance Tests (UAT)') {
+            parallel {
+                stage('Test Chrome - Windows 11') {
+                    steps {
+                        echo 'npm run test: Windows - integration:chrome'
+                    }
+                }
+                stage('Test Chrome - Mac 11') {
+                    steps {
+                        echo 'npm run test: Mac - integration:chrome'
+                    }
+                }
                 stage('Test Firefox - Windows 11') {
                     steps {
                         echo 'npm run test:integration:firefox'
@@ -59,14 +80,6 @@ pipeline {
                 }
             }
         }
-
-        stage('Deploy to QA') {
-
-            steps {
-                echo 'npm run deploy:qa'
-            }
-        }
-
         stage('Deploy to Production') {
 
             steps {
