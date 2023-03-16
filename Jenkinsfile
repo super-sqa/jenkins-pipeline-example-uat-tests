@@ -61,18 +61,14 @@ pipeline {
         }
 
         stage('Deploy to QA') {
-            // when {
-            //     branch 'main'
-            // }
+
             steps {
                 echo 'npm run deploy:qa'
             }
         }
 
         stage('Deploy to Production') {
-            // when {
-            //     branch 'main'
-            // }
+
             steps {
                 echo 'npm run deploy:prod'
             }
