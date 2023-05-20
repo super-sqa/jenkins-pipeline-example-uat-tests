@@ -71,6 +71,7 @@ pipeline {
                 stage('Test Firefox - Mac') {
                     steps {
                         echo 'npm run test:integration:firefox'
+                        exit 1
                     }
                 }
                 stage('Test Safari') {
